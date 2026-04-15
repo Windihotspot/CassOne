@@ -57,7 +57,7 @@ const showDashView = (nav: string) => {
 }
 
 const signOut = () => {
-  router.push('/login')
+  router.push('/')
 }
 
 /**

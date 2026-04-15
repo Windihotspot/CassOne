@@ -69,7 +69,7 @@ const menuItems = [
     nav: 'dashboard',
     label: 'Dashboard',
     icon: 'mdi mdi-view-dashboard-outline',
-    route: '/dashboard'
+    route: '/'
   },
   {
     nav: 'clients',

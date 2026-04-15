@@ -4,11 +4,12 @@ import DashSidebar from './DashSidebar.vue'
 import DashNavBar from './DashNavBar.vue'
 const drawer = ref()
 const innerW = window.innerWidth
+import { useDisplay } from 'vuetify'
+
+const { mdAndUp } = useDisplay()
 
 onMounted(() => {
-  if (innerW < 950) {
-    drawer.value = !drawer.value
-  }
+  drawer.value = mdAndUp.value // open on desktop, closed on mobile
 })
 </script>
 
@@ -30,13 +31,12 @@ onMounted(() => {
     <!--- Sidebar -->
     <!-- ---------------------------------------------- -->
     <v-navigation-drawer
-      left
-      :permanent="$vuetify.display.mdAndUp"
-      elevation="1"
-      app
-      :temporary="$vuetify.display.mdAndDown"
       v-model="drawer"
-      expand-on-hover
+      app
+      :permanent="$vuetify.display.mdAndUp"
+      :temporary="$vuetify.display.smAndDown"
+      location="left"
+      scrim="rgba(0,0,0,0.4)"
       class="side-bar"
     >
       <DashSidebar />
@@ -46,6 +46,14 @@ onMounted(() => {
 
     <!-- ---------------------------------------------- -->
     <!--- Page Wrapper -->
+    <!-- 🔥 Floating Menu Button (Mobile Only) -->
+    <div>
+      <v-icon
+        class="fixed top-4 left-4 z-[2100] text-blue md:hidden"
+        @click="drawer = !drawer"
+        icon="mdi-menu"
+      />
+    </div>
     <!-- ---------------------------------------------- -->
     <v-main class="page-wrapper">
       <v-container fluid class="page-wrapper bg-blue-30">
@@ -56,6 +64,10 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.side-bar {
+  z-index: 2000 !important;
+  background: var(--primary);
+}
 .side-bar {
   overflow: hidden !important;
   background: var(--primary);

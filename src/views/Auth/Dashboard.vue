@@ -1,6 +1,52 @@
 <template>
   <MainLayout>
-    <div class="p-4 space-y-6">
+    <div v-if="loading" class="space-y-6">
+      <!-- SKELETON UI -->
+      <div class="animate-pulse space-y-2">
+        <div class="h-6 w-64 bg-gray-200 rounded"></div>
+        <div class="h-4 w-96 bg-gray-200 rounded"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div
+          v-for="i in 3"
+          :key="i"
+          class="rounded-2xl p-5 bg-white shadow-md space-y-4 animate-pulse"
+        >
+          <div class="h-8 w-8 bg-gray-200 rounded"></div>
+          <div class="h-4 w-24 bg-gray-200 rounded"></div>
+          <div class="h-6 w-32 bg-gray-300 rounded"></div>
+          <div class="h-3 w-20 bg-gray-200 rounded"></div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 animate-pulse space-y-4">
+        <div class="h-5 w-48 bg-gray-200 rounded"></div>
+        <div class="h-3 w-32 bg-gray-200 rounded"></div>
+
+        <div class="grid grid-cols-2 gap-4 mt-4">
+          <div v-for="i in 6" :key="i" class="h-4 bg-gray-200 rounded"></div>
+        </div>
+
+        <div class="h-2 w-full bg-gray-200 rounded"></div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 animate-pulse space-y-4">
+        <div class="h-5 w-40 bg-gray-200 rounded"></div>
+
+        <div v-for="i in 4" :key="i" class="flex justify-between items-center">
+          <div class="flex gap-3">
+            <div class="w-10 h-10 bg-gray-200 rounded-xl"></div>
+            <div class="space-y-2">
+              <div class="h-4 w-24 bg-gray-200 rounded"></div>
+              <div class="h-3 w-32 bg-gray-100 rounded"></div>
+            </div>
+          </div>
+          <div class="h-6 w-16 bg-gray-200 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+    <div v-else class="p-4 space-y-6">
       <!-- 🔹 Top Bar -->
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>

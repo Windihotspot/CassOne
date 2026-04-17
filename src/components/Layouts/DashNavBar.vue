@@ -47,12 +47,11 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useAuthStore } from '@/stores/auth'
+
 import { useRouter } from 'vue-router'
 import logo from '@/assets/images/new-logo.jpeg'
 
 const showMenu = ref(false)
-const authStore = useAuthStore()
 const router = useRouter()
 
 import { useRoute } from 'vue-router'
@@ -71,23 +70,6 @@ const goHome = () => {
   router.push('/dashboard')
 }
 
-const fullName = computed(() => {
-  if (!authStore.user) return 'User'
-  return `${authStore.user.first_name || ''} ${authStore.user.last_name || ''}`.trim()
-})
-const initials = computed(() => {
-  if (!authStore.user) return 'U'
-
-  const first = authStore.user.first_name?.charAt(0) || ''
-  const last = authStore.user.last_name?.charAt(0) || ''
-
-  const result = (first + last).toUpperCase()
-  return result || authStore.user.first_name?.charAt(0).toUpperCase() || 'U'
-})
-const handleLogout = async () => {
-  await authStore.logout()
-  router.push('/login')
-}
 const goLanding = () => {
   // replace with router push if needed
   window.location.href = '/'

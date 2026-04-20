@@ -77,12 +77,12 @@ const menuItems = [
     icon: 'mdi mdi-domain',
     route: '/clients'
   },
-  {
-    nav: 'onboarding',
-    label: 'Onboarding',
-    icon: 'mdi mdi-account-plus-outline',
-    route: '/onboarding'
-  },
+  // {
+  //   nav: 'onboarding',
+  //   label: 'Onboarding',
+  //   icon: 'mdi mdi-account-plus-outline',
+  //   route: '/onboarding'
+  // },
   {
     nav: 'risk',
     label: 'Risk Assessment',
@@ -93,7 +93,7 @@ const menuItems = [
     nav: 'gap',
     label: 'Gap Analysis',
     icon: 'mdi mdi-chart-box-outline',
-    route: '/gap-analysis'
+    route: '/analysis'
   },
   {
     nav: 'documents',

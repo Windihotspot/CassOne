@@ -809,6 +809,10 @@
 <script setup>
 import { ref, computed } from 'vue'
 import MainLayout from '@/components/Layouts/MainLayout.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 // ─── View State ───────────────────────────────────────────────
 const viewMode = ref('table')
 const search = ref('')
@@ -1210,6 +1214,7 @@ const goToRisk = (client) => {
   menuOpen.value = false
   viewDrawer.value = false
   console.log('Navigate to Risk Assessment for', client.companyName)
+  router.push('risk')
 }
 const goToGap = (client) => {
   menuOpen.value = false
